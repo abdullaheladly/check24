@@ -13,10 +13,25 @@
         <action
             android:id="@+id/action_productOverview_to_productDetails"
             app:destination="@id/productDetails" />
+        <action
+            android:id="@+id/action_productOverview_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/productDetails"
         android:name="com.abdullah996.check24.ui.details.ProductDetails"
         android:label="fragment_product_details"
-        tools:layout="@layout/fragment_product_details" />
+        tools:layout="@layout/fragment_product_details" >
+        <argument
+            android:name="product"
+            app:argType="com.abdullah996.check24.data.model.Product" />
+        <action
+            android:id="@+id/action_productDetails_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.abdullah996.check24.ui.webview.WebViewFragment"
+        android:label="fragment_web_view"
+        tools:layout="@layout/fragment_web_view" />
 </navigation>

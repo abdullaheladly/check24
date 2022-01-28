@@ -3,10 +3,144 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/_8sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.details.ProductDetails">
 
+    <ImageView
+        android:background="#2196F3"
+        android:id="@+id/product_image_detail"
+        android:layout_width="@dimen/_70sdp"
+        android:layout_height="@dimen/_70sdp"
+        android:layout_margin="@dimen/_8sdp"
+        android:src="@drawable/card_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/txt_product_name_detail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="@dimen/_15ssp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_margin="@dimen/_8sdp"
+        app:layout_constraintEnd_toStartOf="@id/txt_product_date_detail"
+        app:layout_constraintStart_toEndOf="@id/product_image_detail"
+        app:layout_constraintTop_toTopOf="parent"/>
 
+    <TextView
+        android:id="@+id/txt_product_date_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1/1/2020"
+        android:textSize="@dimen/_11sdp"
+        android:layout_margin="@dimen/_8sdp"
+        app:layout_constraintStart_toEndOf="@id/txt_product_name_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:id="@+id/txt_product_desc_detail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=" het asij  smdadl  ;lsad lk ma  a jhdfdm an"
+        android:textSize="@dimen/_11sdp"
+        android:layout_margin="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/product_image_detail"
+        app:layout_constraintTop_toBottomOf="@id/txt_product_name_detail"
+        />
+
+    <TextView
+        android:id="@+id/txt_product_Price_label_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Price "
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="@dimen/_11sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:layout_constraintStart_toEndOf="@id/product_image_detail"
+        app:layout_constraintEnd_toStartOf="@id/txt_product_Price_num_detail"
+        app:layout_constraintTop_toBottomOf="@id/txt_product_desc_detail"/>
+
+    <TextView
+        android:id="@+id/txt_product_Price_num_detail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=" 20.15"
+        android:maxLines="1"
+        android:textSize="@dimen/_11ssp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:layout_constraintStart_toEndOf="@id/txt_product_Price_label_detail"
+        app:layout_constraintEnd_toStartOf="@id/product_rating_detail"
+        app:layout_constraintTop_toBottomOf="@id/txt_product_desc_detail"/>
+
+    <RatingBar
+        android:id="@+id/product_rating_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_16sdp"
+        style="?android:attr/ratingBarStyleSmall"
+        app:layout_constraintStart_toEndOf="@id/txt_product_Price_num_detail"
+        app:layout_constraintTop_toBottomOf="@id/txt_product_desc_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/add_to_favourite_detial"
+        />
+
+    <Button
+        android:id="@+id/add_to_favourite_detial"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vormerken"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        app:layout_constraintTop_toBottomOf="@id/txt_product_Price_num_detail"
+        />
+        <TextView
+            android:id="@+id/besch_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="Beschreibung"
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/add_to_favourite_detial"/>
+
+    <TextView
+        android:id="@+id/longDescription_detail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="Beschreibung"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/besch_detail"/>
+
+    <TextView
+        android:id="@+id/footer_detail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:text="©2016 Check24"
+        android:textStyle="bold"
+        android:textSize="@dimen/_14ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/longDescription_detail"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,10 +12,13 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.abdullah996.check24.R
 import com.abdullah996.check24.data.model.Product
+import com.abdullah996.check24.ui.overview.OnClickListeners
 import com.abdullah996.check24.utill.ProductsDiffUtil
 
-class ProductOverviewAdapter :RecyclerView.Adapter<ProductOverviewAdapter.MyViewHolder>(){
+class ProductOverviewAdapter(onClickListeners: OnClickListeners) :RecyclerView.Adapter<ProductOverviewAdapter.MyViewHolder>(){
     private var productList= emptyList<Product>()
+    private val onClickListeners=onClickListeners
+
     class MyViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -33,7 +36,9 @@ class ProductOverviewAdapter :RecyclerView.Adapter<ProductOverviewAdapter.MyView
         holder.itemView.findViewById<TextView>(R.id.txt_product_desc).text=productList[position].description.toString()
         holder.itemView.findViewById<RatingBar>(R.id.product_rating).numStars=5
         holder.itemView.findViewById<RatingBar>(R.id.product_rating).rating=productList[position].rating.toFloat()
-
+        holder.itemView.setOnClickListener {
+            onClickListeners.onProductItemClick(productList[position])
+        }
     }
 
     override fun getItemCount(): Int {
