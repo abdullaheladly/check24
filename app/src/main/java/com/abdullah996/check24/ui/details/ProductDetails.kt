@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.abdullah996.check24.R
+import com.abdullah996.check24.data.database.Products
 import com.abdullah996.check24.data.model.Product
 import com.abdullah996.check24.databinding.FragmentProductDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,8 +23,14 @@ class ProductDetails : Fragment() {
     private val binding get() = _binding!!
     private val args by navArgs<ProductDetailsArgs>()
     private lateinit var product:Product
+    private lateinit var productsDetailsViewModel:ProductsDetailsViewModel
 
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        productsDetailsViewModel=ViewModelProvider(requireActivity()).get(ProductsDetailsViewModel::class.java)
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,6 +56,8 @@ class ProductDetails : Fragment() {
         binding.longDescriptionDetail.text=product.longDescription
         binding.addToFavouriteDetial.setOnClickListener {
             //add to favourite
+
+            productsDetailsViewModel.addToFavourite(product)
         }
         binding.footerDetail.setOnClickListener {
             findNavController().navigate(R.id.action_productDetails_to_webViewFragment)
