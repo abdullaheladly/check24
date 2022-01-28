@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.abdullah996.check24.databinding.FragmentProductOverviewBinding
 import com.abdullah996.check24.ui.overview.adpter.ProductOverviewAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,8 +35,21 @@ class ProductOverview : Fragment() {
     ): View? {
         _binding= FragmentProductOverviewBinding.inflate(layoutInflater,container,false)
         setupRecycleView()
+        binding.progressBar.visibility=View.VISIBLE
         loadProducts()
+        setListeners()
         return binding.root
+    }
+
+    private fun setListeners() {
+         val refreshListener=SwipeRefreshLayout.OnRefreshListener{
+
+        }
+        binding.refresh.setOnRefreshListener {
+            binding.refresh.isRefreshing=true
+            binding.progressBar.visibility=View.VISIBLE
+            loadProducts()
+        }
     }
 
     private fun setupRecycleView() {
@@ -52,9 +66,14 @@ class ProductOverview : Fragment() {
                 binding.filter3.text=it.filters[2].toString()
                 binding.txtTitle.text=it.header.headerTitle
                 binding.txtSubTitle.text=it.header.headerDescription
+                binding.progressBar.visibility=View.INVISIBLE
+                binding.refresh.isRefreshing=false
+
             }
         })
     }
+
+
 
     private fun makeToast(s:String){
         Toast.makeText(requireContext(), s, Toast.LENGTH_SHORT).show()
