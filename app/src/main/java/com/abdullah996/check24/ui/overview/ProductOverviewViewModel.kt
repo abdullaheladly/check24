@@ -1,5 +1,9 @@
 package com.abdullah996.check24.ui.overview
 
+import android.app.Application
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import androidx.hilt.lifecycle.ViewModelInject
 import com.abdullah996.check24.base.BaseViewModel
 import com.abdullah996.check24.data.model.BaseResponse
@@ -19,4 +23,6 @@ class ProductOverviewViewModel @ViewModelInject constructor(
         }
         emit(result)
     }
+
+
 }

@@ -61,4 +61,5 @@ class ProductOverviewAdapter(onClickListeners: OnClickListeners) :RecyclerView.A
         productList=newProductsList
         diffUtilResult.dispatchUpdatesTo(this)
     }
+
 }
