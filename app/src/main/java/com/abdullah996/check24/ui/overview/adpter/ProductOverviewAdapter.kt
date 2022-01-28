@@ -27,8 +27,18 @@ class ProductOverviewAdapter(onClickListeners: OnClickListeners) :RecyclerView.A
 
     @SuppressLint("CutPasteId")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.itemView.findViewById<ImageView>(R.id.product_image).load(productList[position].imageURL){
-            crossfade(600)
+
+        if (productList[position].available==true){
+            holder.itemView.findViewById<ImageView>(R.id.product_image).load(productList[position].imageURL){
+                crossfade(600)
+            }
+        }
+        else{
+            holder.itemView.findViewById<ImageView>(R.id.product_image).visibility=View.GONE
+            holder.itemView.findViewById<ImageView>(R.id.product_image_notAvalabile).visibility=View.VISIBLE
+            holder.itemView.findViewById<ImageView>(R.id.product_image_notAvalabile).load(productList[position].imageURL){
+                crossfade(600)
+            }
         }
         holder.itemView.findViewById<TextView>(R.id.txt_product_name).text=productList[position].name.toString()
         holder.itemView.findViewById<TextView>(R.id.txt_product_date).text=productList[position].releaseDate.toString()

@@ -36,7 +36,7 @@
         android:textSize="@dimen/_11sdp"
         android:layout_margin="@dimen/_8sdp"
         app:layout_constraintStart_toEndOf="@id/txt_product_name"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/product_image_notAvalabile"
         app:layout_constraintTop_toTopOf="parent"/>
     <TextView
         android:id="@+id/txt_product_desc"
@@ -46,7 +46,7 @@
         android:textSize="@dimen/_11sdp"
         android:layout_margin="@dimen/_8sdp"
         android:maxLines="3"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/product_image_notAvalabile"
         app:layout_constraintStart_toEndOf="@id/product_image"
         app:layout_constraintTop_toBottomOf="@id/txt_product_name"
         />
@@ -87,7 +87,17 @@
         style="?android:attr/ratingBarStyleSmall"
         app:layout_constraintStart_toEndOf="@id/txt_product_Price_num"
         app:layout_constraintTop_toBottomOf="@id/txt_product_desc"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/product_image_notAvalabile"
         app:layout_constraintBottom_toBottomOf="parent"/>
+    <ImageView
+        android:visibility="gone"
+        android:background="#2196F3"
+        android:id="@+id/product_image_notAvalabile"
+        android:layout_width="@dimen/_70sdp"
+        android:layout_height="@dimen/_70sdp"
+        android:layout_margin="@dimen/_8sdp"
+        android:src="@drawable/card_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
