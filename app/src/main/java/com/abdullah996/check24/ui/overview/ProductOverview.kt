@@ -45,8 +45,14 @@ class ProductOverview : Fragment() {
 
     private fun loadProducts() {
         productOverviewViewModel.getAllProducts().observe(viewLifecycleOwner,{
-            makeToast(it.toString())
-            productsAdapter.saveData(it.products)
+            if (it != null) {
+                productsAdapter.saveData(it.products)
+                binding.filter1.text=it.filters[0].toString()
+                binding.filter2.text=it.filters[1].toString()
+                binding.filter3.text=it.filters[2].toString()
+                binding.txtTitle.text=it.header.headerTitle
+                binding.txtSubTitle.text=it.header.headerDescription
+            }
         })
     }
 

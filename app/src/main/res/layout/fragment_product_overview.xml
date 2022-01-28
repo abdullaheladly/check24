@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Title"
-            android:textSize="@dimen/_25sdp"
+            android:textSize="@dimen/_20sdp"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:layout_margin="@dimen/_8sdp"
@@ -65,32 +65,35 @@
 
             <TextView
                 android:id="@+id/filter1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/filter1"
-                android:textSize="@dimen/_22ssp"
+                android:textSize="@dimen/_15ssp"
                 android:textColor="@color/black"
                 android:layout_marginStart="@dimen/_8sdp"
+                app:layout_constraintEnd_toStartOf="@id/filter2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
             <TextView
                 android:id="@+id/filter2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/filter_2"
-                android:textSize="@dimen/_22ssp"
+                android:textSize="@dimen/_15ssp"
                 android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/filter1"
+                app:layout_constraintEnd_toStartOf="@id/filter3"
                 app:layout_constraintTop_toTopOf="parent"/>
             <TextView
                 android:id="@+id/filter3"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:textAlignment="center"
                 android:layout_height="wrap_content"
                 android:text="@string/filter_3"
-                android:textSize="@dimen/_22ssp"
+                android:textSize="@dimen/_15ssp"
                 android:textColor="@color/black"
                 android:layout_marginEnd="@dimen/_8sdp"
+                app:layout_constraintStart_toEndOf="@id/filter2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
